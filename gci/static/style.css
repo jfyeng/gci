@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+}
+
+.gallery {
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    z-index: 5;
+    position: fixed;
+    background-color: rgba(255, 235, 205, 0.568);
+    transform: translateY(-2px);
+}
+
+#center a {
+    padding: 8px 16px;
+    background-color: #00cfc8;
+    border-radius: 8px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: fit-content;
+    margin: 5px;
+}
+
+#center a:hover {
+    background-color: #008b8b;
+    transform: translateY(-2px);
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+#rings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#foreground {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.delete-form {
+    margin-top: 1rem;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+/* Camera page specific styles */
+.camera-container {
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: white;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#video {
+    border-radius: 8px;
+    background: #000;
+    border: 2px solid #00cfc8;
+}
+
+#instructions {
+    color: white;
+    text-align: center;
+}
+
+.record-btn {
+    background: #00cfc8;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.record-btn:hover {
+    background: #008b8b;
+    transform: translateY(-2px);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #00cfc8;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #008b8b;
+}
+
+.submit-btn {
+    background: #00cfc8;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #008b8b;
+    transform: translateY(-2px);
+}

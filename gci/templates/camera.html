@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GCI Camera</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="rings">
+        </div>
+        
+        <div id="center">
+            <a href="{{ url_for('routes.home') }}">Home</a>
+            <a href="{{ url_for('routes.camera') }}">Add People</a>
+        </div>
+
+        <div id="foreground">
+            <br><br><br><br>
+            <div class="camera-container">
+                <div class="video-container">
+                    <video id="video" width="400" height="300" autoplay></video>
+                    <div id="instructions">Please move your head slightly left and right while recording...</div>
+                    <button id="record" class="record-btn">Start Recording</button>
+                </div>
+                
+                <form id="webcam-form" method="POST" action="{{ url_for('routes.camera') }}" style="display:none">
+                    <div class="form-group">
+                        <label for="webcam-name">Name</label>
+                        <input type="text" id="webcam-name" name="name" required>
+                    </div>
+                    <input type="hidden" name="video_data" id="video-data">
+                    <button type="submit" class="submit-btn">Upload Video</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.rings.min.js"></script>
+        <script>
+        VANTA.RINGS({
+            el: "#rings",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x86e81e,
+        })
+        </script>
+        <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="rings">
+        </div>
+        
+        <div id="center">
+            <a href="{{ url_for('routes.home') }}">Home</a>
+            <a href="{{ url_for('routes.camera') }}">Add People</a>
+        </div>
+
+        <div id="foreground">
+            <br><br><br><br><br><br><br>
+            <h1>We are creating the future with GCI!</h1>
+            
+            <div class="gallery">
+                {% for m in media %}
+                <div class="gallery-item">
+                    <p>{{ m['name'] }}</p>
+                    <video src="{{ url_for('routes.media', filename=m['filename']) }}" width="200" controls></video>
+                    <form action="{{ url_for('routes.delete', filename=m['filename']) }}" method="POST" class="delete-form">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.rings.min.js"></script>
+        <script>
+        VANTA.RINGS({
+            el: "#rings",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x86e81e,
+        })
+        </script>
+    </body>
+</html>
